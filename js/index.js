@@ -12,3 +12,8 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+
+//windows.location sirve para dirigir el navegador a otro sitio
+//localStorage.setItem sirve para almacenar datos a ser utilizados por JS, similar a las cookies
+//setItem(a, b) es el método que almacena en localStorage con párametros de categoría y valor
