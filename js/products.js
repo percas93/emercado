@@ -1,4 +1,11 @@
-getJSONData(CATEGORIES_URL)
+let productos = [];
+
+document.addEventListener("DOMContentLoaded", function(){
+        getJSONData(CATEGORIES_URL)
+        .then(function(){
+            if 
+        })
+})
 
 
 

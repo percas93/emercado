@@ -16,27 +16,27 @@ let hideSpinner = function(){
 }
 
 //Acá definimos el procedimiento que carga los datos desde una url dada
-let getJSONData = function(url){
-    let result = {};
-    showSpinner();
-    return fetch(url)
-    .then(response => {
+let getJSONData = function(url){ //Guarda en variable el procedimiento del fetch
+    let result = {}; //Crea objeto "result" para el resultado
+    showSpinner(); //Abre el spinner
+    return fetch(url) //Devuelve los datos
+    .then(response => { //Luego(.then) llama a esos datos response, y abre un procedimiento
       if (response.ok) {
-        return response.json();
+        return response.json(); //si el atributo .ok es true le aplica el método transformativo .json()
       }else{
-        throw Error(response.statusText);
+        throw Error(response.statusText); //sino genera un error a ser atrapado
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function(response) { //Luego, llama a esos datos transformados de response, y abre un procedimiento
+          result.status = 'ok'; //crea un atributo status con valor 'ok' para result
+          result.data = response; //crea un atributo data con todo la info
+          hideSpinner(); //esconde el spinner
+          return result; //devuelve result lo cual no está almacenado fuera del procedimiento
     })
     .catch(function(error) {
         result.status = 'error';
         result.data = error;
-        hideSpinner();
-        return result;
+        hideSpinner(); //Esconde el spinner
+        return result; //Devuelve el result
     });
 }
