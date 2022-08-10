@@ -15,6 +15,7 @@ let hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
+//Acá definimos el procedimiento que carga los datos desde una url dada
 let getJSONData = function(url){
     let result = {};
     showSpinner();
