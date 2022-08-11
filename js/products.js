@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 function showProductsList() {
 
-    let agregarAlHTML = ""
-    for (let i = 0; i < autosArray.length; i++) {
+    let agregarAlHTML = "<p>Párrafo</p>"
+    /*for (let i = 0; i < autosArray.length; i++) {
         agregarAlHTML += `
             <div onclick="setCatID(${autosArray[2].id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
@@ -44,7 +44,7 @@ function showProductsList() {
                 </div>
             </div>
             `
-    }
+    }*/
     document.getElementById("prod-list-container").innerHTML += agregarAlHTML;
 
 }
