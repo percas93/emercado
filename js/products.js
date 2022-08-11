@@ -6,7 +6,7 @@ function showProductsList() {
     let agregarAlHTML = ""
     for (let i = 0; i < autosArray.length; i++) {
         agregarAlHTML += `
-            <!-- <div onclick="setCatID(${autosArray[i].id})" class="list-group-item list-group-item-action cursor-active"> -->
+            <div onclick="setCatID(${autosArray[i].id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${autosArray[i].image}" alt="${autosArray[i].description}" class="img-thumbnail">
@@ -22,7 +22,7 @@ function showProductsList() {
             </div>
             `
     }
-    document.getElementById("prod-list-container").innerHTML += agregarAlHTML;
+    document.getElementById("prod-list-container").innerHTML = agregarAlHTML;
 
 }
 
@@ -44,8 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
             if (result.status === 'ok') {
                 autosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
+                showProductsList();
             }
-
         });
-    showProductsList();
 });
