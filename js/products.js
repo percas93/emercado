@@ -5,18 +5,19 @@ function showProductsList() {
 
     let agregarAlHTML = ""
     for (let i = 0; i < autosArray.length; i++) {
+        let autoActual = autosArray[i];
         agregarAlHTML += `
-            <div onclick="setCatID(${autosArray[i].id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setCatID(${autoActual.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
-                        <img src="${autosArray[i].image}" alt="${autosArray[i].description}" class="img-thumbnail">
+                        <img src="${autoActual.image}" alt="${autoActual.description}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${autosArray[i].name}</h4>
-                            <small class="text-muted">${autosArray[i].productCount} artículos</small>
+                            <h4 class="mb-1">${autoActual.name}</h4>
+                            <small class="text-muted">${autoActual.productCount} artículos</small>
                         </div>
-                        <p class="mb-1">${autosArray[i].description}</p>
+                        <p class="mb-1">${autoActual.description}</p>
                     </div>
                 </div>
             </div>
