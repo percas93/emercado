@@ -13,8 +13,8 @@ function showProductsList() {
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${autosArray[i].name}</h4>
-                            <small class="text-muted">${autosArray[i].productCount} artículos</small>
+                            <h4 class="mb-1">${autosArray[i].name} - ${autosArray[i].cost} ${autosArray[i].currency}</h4>
+                            <small class="text-muted">${autosArray[i].soldCount} vendidos</small>
                         </div>
                         <p class="mb-1">${autosArray[i].description}</p>
                     </div>
