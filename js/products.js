@@ -1,14 +1,14 @@
 let autosArray = []; /*Variable donde guardar el return del getJSONData
                 utilizamos una array para poder recorrerlo con un for*/
 
-document.addEventListener("DOMContentLoaded", function(){
-        getJSONData(PRODUCTS_URL+"101.json")
-        .then(function(result){ 
+document.addEventListener("DOMContentLoaded", function () {
+    getJSONData(PRODUCTS_URL + "101.json")
+        .then(function (result) {
             if (result.status === 'ok') {
-                autosArray  = result.data.products; //Guarda el return del getJSONDATA en variable autos
+                autosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
             }
 
-       });
+        });
 });
 
 /*Referencia Ejercicio 4.6 
@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 */
 
-function showProductsList(){
+function showProductsList() {
 
-    var agregarAlHTML = ""
-    for(let i = 0; i < autosArray.length; i++){
+    let agregarAlHTML = ""
+    for (let i = 0; i < autosArray.length; i++) {
         agregarAlHTML += `
             <div onclick="setCatID(${autosArray[2].id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
@@ -44,8 +44,8 @@ function showProductsList(){
                 </div>
             </div>
             `
-        }
-        document.getElementById("prod-list-container").innerHTML += agregarAlHTML;
+    }
+    document.getElementById("prod-list-container").innerHTML += agregarAlHTML;
 
 }
 
