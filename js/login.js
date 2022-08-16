@@ -1,6 +1,6 @@
-const btnEnviar = document.getElementById("btnEnviar"); 
-const mail = document.getElementById("mail");
-const pass = document.getElementById("pass"); 
+var btnEnviar = document.getElementById("btnEnviar"); 
+var mail = document.getElementById("mail");
+var pass = document.getElementById("pass"); 
 
 
 btnEnviar.addEventListener('click', () => {
