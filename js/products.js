@@ -26,6 +26,9 @@ function showProductsList() {
 
 }
 
+//SOBRE EL ESTILO: Está claro que no acabo de entender las clases del bootstrap, las tomé del ejercicio 4.6
+
+
 /*Referencia Ejercicio 4.6 
 
 document.addEventListener("DOMContentLoaded", function(e){
