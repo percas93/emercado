@@ -30,8 +30,8 @@ function showProductsList() {
 
 function changeTitles() {
 
-    document.getElementById("prod-list-container").innerHTML += textoaAgregar;
-    document.getElementById("prod-list-container").innerHTML += textoaAgregar;
+    document.getElementById("prod-title").innerHTML += localStorage.setItem("catName");
+    document.getElementById("prod-subtitle").innerHTML += localStorage.setItem("catName");
 
 }
 
