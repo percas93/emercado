@@ -1,6 +1,8 @@
 let productosArray = []; /*Variable donde guardar el return del getJSONData
                 utilizamos una array para poder recorrerlo con un for*/
 
+let infoCat = ""
+
 function showProductsList() {
 
     let textoaAgregar = ""
@@ -26,6 +28,13 @@ function showProductsList() {
 
 }
 
+function changeTitles() {
+
+    document.getElementById("prod-list-container").innerHTML += textoaAgregar;
+    document.getElementById("prod-list-container").innerHTML += textoaAgregar;
+
+}
+
 //SOBRE EL ESTILO: Está claro que no acabo de entender las clases del bootstrap, las tomé del ejercicio 4.6
 
 
@@ -46,8 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
+                localStorage.setItem("catName") = result.data.catName;
                 productosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
-                showProductsList();
+                showProductsList(); //Agrega los productos
             }
         });
 });
