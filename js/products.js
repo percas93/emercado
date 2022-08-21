@@ -55,8 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
-                localStorage.setItem("catName") = result.data.catName;
+                localStorage.setItem("catName") = result.data.catName; //Colocamos el nombre de la categoría en localStorage
                 productosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
+                changeTitles(); //Agrega la categoría en título y productos
                 showProductsList(); //Agrega los productos
             }
         });
