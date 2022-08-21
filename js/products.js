@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 */
 
 document.addEventListener("DOMContentLoaded", function () {
-    getJSONData(PRODUCTS_URL + "101.json")
+    getJSONData(PRODUCTS_URL + localStorage.getItem(CatID) + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
                 autosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
