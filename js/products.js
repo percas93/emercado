@@ -8,7 +8,7 @@ function showProductsList() {
     let textoaAgregar = ""
     for (let i = 0; i < productosArray.length; i++) {
         textoaAgregar += `
-            <div onclick="setCatID(${productosArray[i].id})" class="list-group-item list-group-item-action cursor-active">
+            <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${productosArray[i].image}" alt="${productosArray[i].description}" class="img-thumbnail">
