@@ -35,8 +35,9 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function setCatID(id) {
-    localStorage.setItem("catID", id);
+function setLocalStorageItems(objeto) {
+    localStorage.setItem("catID", objeto + ".id");
+    localStorage.setItem("catName", objeto + ".name");
     window.location = "products.html"
 }
 
@@ -50,7 +51,7 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setLocalStorageItems()" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${category.imgSrc}" alt="${category.description}" class="img-thumbnail">
