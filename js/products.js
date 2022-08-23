@@ -52,12 +52,17 @@ document.addEventListener("DOMContentLoaded", function(e){
 */
 
 document.addEventListener("DOMContentLoaded", function () {
+    
+    showUserButton()
+
+    changeTitles(); //Agrega la categoría en título y productos
+
     getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
                 productosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
-                changeTitles(); //Agrega la categoría en título y productos
                 showProductsList(); //Agrega los productos
             }
         });
+
 });

@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         minCount = undefined;
         maxCount = undefined;
 
-        showCategoriesList();
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -140,4 +139,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    showUserButton()
+    showCategoriesList();
+
 });

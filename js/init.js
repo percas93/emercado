@@ -46,3 +46,7 @@ let getJSONData = function(url){ //Guarda en variable el procedimiento del fetch
         return result; //Devuelve el result
     });
 }
+
+let showUserButton = function() {
+  document.getElementById("user-btn").textContent = localStorage.getItem("user");
+}
