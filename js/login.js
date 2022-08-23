@@ -6,6 +6,7 @@ btnEnviar.addEventListener('click', () => {
     if (mail.value != '' && pass.value != '') {
         window.location = "index.html";
         localStorage.setItem("loginStatus", "logged");
+        localStorage.setItem("user", mail.value);
     }
     else{
         alert("Existen campos sin completar");
