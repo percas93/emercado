@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
-    showUserButton()
+    showUserButton();
     showCategoriesList();
 
 });
