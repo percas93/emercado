@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 document.addEventListener("DOMContentLoaded", function () {
     
-    showUserButton()
+    showUserButton();
 
     changeTitles(); //Agrega la categoría en título y productos
 

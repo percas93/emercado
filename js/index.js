@@ -23,5 +23,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 //windows.location sirve para dirigir el navegador a otro sitio
+//localStorage.setItem sirve para almacenar datos a ser utilizados por JS, similar a las cookies
 //windows.location sirve para dirigir el navegador a otro sitio
 //setItem(a, b) es el método que almacena en localStorage con párametros de categoría y valor
