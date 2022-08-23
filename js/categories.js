@@ -35,9 +35,9 @@ function sortCategories(criteria, array){
     return result;
 }
 
-function setLocalStorageItems(objeto) {
-    localStorage.setItem("catID", objeto + ".id");
-    localStorage.setItem("catName", objeto + ".name");
+function setLocalStorageItems() {
+    localStorage.setItem("catID", currentCategoriesArray.data.id);
+    localStorage.setItem("catName", currentCategoriesArray.data.name);
     window.location = "products.html"
 }
 
