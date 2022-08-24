@@ -1,24 +1,66 @@
-let productosArray = []; /*Variable donde guardar el return del getJSONData
+let productsArray = []; /*Variable donde guardar el return del getJSONData
                 utilizamos una array para poder recorrerlo con un for*/
 
 let infoCat = ""
 
+function sortProducts(criteria, array){
+    let result = [];
+    if (criteria === ORDER_ASC_BY_NAME)
+    {
+        result = array.sort(function(a, b) {
+            if ( a.name < b.name ){ return -1; }
+            if ( a.name > b.name ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_NAME){
+        result = array.sort(function(a, b) {
+            if ( a.name > b.name ){ return -1; }
+            if ( a.name < b.name ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_BY_PROD_COUNT){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.productCount);
+            let bCount = parseInt(b.productCount);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+    }
+
+    return result;
+}
+
+function sortAndShowProducts(sortCriteria, categoriesArray){
+    currentSortCriteria = sortCriteria;
+
+    if(categoriesArray != undefined){
+        currentProductsArray = productsArray;
+    }
+
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
+
+    //Muestro las categorías ordenadas
+    showProductsList();
+}
+
 function showProductsList() {
 
     let textoaAgregar = ""
-    for (let i = 0; i < productosArray.length; i++) {
+    for (let i = 0; i < productsArray.length; i++) {
         textoaAgregar += `
             <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
-                        <img src="${productosArray[i].image}" alt="${productosArray[i].description}" class="img-thumbnail">
+                        <img src="${productsArray[i].image}" alt="${productsArray[i].description}" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${productosArray[i].name} - ${productosArray[i].cost} ${productosArray[i].currency}</h4>
-                            <small class="text-muted">${productosArray[i].soldCount} vendidos</small>
+                            <h4 class="mb-1">${productsArray[i].name} - ${productsArray[i].cost} ${productsArray[i].currency}</h4>
+                            <small class="text-muted">${productsArray[i].soldCount} vendidos</small>
                         </div>
-                        <p class="mb-1">${productosArray[i].description}</p>
+                        <p class="mb-1">${productsArray[i].description}</p>
                     </div>
                 </div>
             </div>
@@ -37,20 +79,6 @@ function changeTitles() {
 
 //SOBRE EL ESTILO: Está claro que no acabo de entender las clases del bootstrap, las tomé del ejercicio 4.6
 
-
-/*Referencia Ejercicio 4.6 
-
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(LIST_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            categoriesArray = resultObj.data;
-            showCategoriesList(categoriesArray);
-        }
-    });
-});
-*/
-
 document.addEventListener("DOMContentLoaded", function () {
     
     showUserButton();
@@ -60,9 +88,53 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
-                productosArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
+                productsArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
                 showProductsList(); //Agrega los productos
             }
+        });
+
+        document.getElementById("sortAsc").addEventListener("click", function(){
+            sortAndShowProducts(ORDER_ASC_BY_NAME);
+        });
+    
+        document.getElementById("sortDesc").addEventListener("click", function(){
+            sortAndShowProducts(ORDER_DESC_BY_NAME);
+        });
+    
+        document.getElementById("sortByCount").addEventListener("click", function(){
+            sortAndShowProducts(ORDER_BY_PROD_COUNT);
+        });
+    
+        document.getElementById("clearRangeFilter").addEventListener("click", function(){
+            document.getElementById("rangeFilterCountMin").value = "";
+            document.getElementById("rangeFilterCountMax").value = "";
+    
+            minCount = undefined;
+            maxCount = undefined;
+    
+        });
+    
+        document.getElementById("rangeFilterCount").addEventListener("click", function(){
+            //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+            //de productos por categoría.
+            minCount = document.getElementById("rangeFilterCountMin").value;
+            maxCount = document.getElementById("rangeFilterCountMax").value;
+    
+            if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
+                minCount = parseInt(minCount);
+            }
+            else{
+                minCount = undefined;
+            }
+    
+            if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
+                maxCount = parseInt(maxCount);
+            }
+            else{
+                maxCount = undefined;
+            }
+    
+            showProductsList();
         });
 
 });
