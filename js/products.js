@@ -94,15 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("sortAsc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_ASC_BY_NAME);
+            sortAndShowProducts(ORDER_ASC_BY_NAME, productsArray);
         });
     
         document.getElementById("sortDesc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_DESC_BY_NAME);
+            sortAndShowProducts(ORDER_DESC_BY_NAME, productsArray);
         });
     
         document.getElementById("sortByCount").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_BY_PROD_COUNT);
+            sortAndShowProducts(ORDER_BY_PROD_COUNT, productsArray);
         });
     
         document.getElementById("clearRangeFilter").addEventListener("click", function(){
