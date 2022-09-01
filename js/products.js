@@ -56,13 +56,12 @@ document.getElementById("sortAsc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.cost - a.cost;
     });
-    productsArray.reverse();
     showProductsList();
 });
 
 document.getElementById("sortDesc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
-        return b.cost - a.cost;
+        return a.cost - b.cost;
     });
     showProductsList();
 });
