@@ -1,4 +1,4 @@
-let productsArray = []; //Lista de productos para el JavaScript
+let productsArray = []; //Lista de productos para JavaScript
 
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
             if (result.status === 'ok') {
                 productsArray = result.data.products;
+                showProductsList();
             }
         });
-
-    showProductsList();
 
     document.getElementById("rangeFilterMin").value = "";//Para limpiar los inputs en caso de que se recargue la página
     document.getElementById("rangeFilterMax").value = "";
