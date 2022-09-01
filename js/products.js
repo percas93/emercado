@@ -1,4 +1,4 @@
-let productsArray = []; 
+let productsArray = []; //Lista de productos para el JavaScript
 
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
