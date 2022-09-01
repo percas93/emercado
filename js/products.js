@@ -39,8 +39,8 @@ function showProductsList() {
             </div>
             `
         }
-    }
     document.getElementById("prod-list-container").innerHTML = textoaAgregar;
+    }
 
 }
 
