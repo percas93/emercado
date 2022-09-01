@@ -56,6 +56,7 @@ document.getElementById("sortAsc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.cost - a.cost;
     });
+    productsArray.reverse();
     showProductsList();
 });
 
@@ -63,7 +64,6 @@ document.getElementById("sortDesc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.cost - a.cost;
     });
-    productsArray.reverse();
     showProductsList();
 });
 
@@ -71,7 +71,6 @@ document.getElementById("sortByCount").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.soldCount - a.soldCount;
     });
-    productsArray.reverse();
     showProductsList();
 });
 
