@@ -67,6 +67,14 @@ document.getElementById("sortDesc").addEventListener("click", function () {
     showProductsList();
 });
 
+document.getElementById("sortDesc").addEventListener("click", function () {
+    productsArray.sort(function (a, b) {
+        return b.sortByCount - a.sortByCount;
+    });
+    productsArray.reverse();
+    showProductsList();
+});
+
 document.getElementById("clearRangeFilter").addEventListener("click", function () {
     document.getElementById("rangeFilterCountMin").value = "";
     document.getElementById("rangeFilterCountMax").value = "";
