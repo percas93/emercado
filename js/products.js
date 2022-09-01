@@ -21,7 +21,7 @@ function showProductsList() {
 
     let textoaAgregar = ""
     for (let i = 0; i < productsArray.length; i++) {
-        if (productsArray[i].cost >= minCount || minCount == undefined && productsArray[i].cost <= maxCount || maxCount == undefined) {
+        if ((productsArray[i].cost >= minCount || minCount == undefined) && (productsArray[i].cost <= maxCount || maxCount == undefined)) {
             textoaAgregar += `
             <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
@@ -77,15 +77,6 @@ document.getElementById("sortByCount").addEventListener("click", function () {
     showProductsList();
 });
 
-document.getElementById("clearRangeFilter").addEventListener("click", function () {
-    document.getElementById("rangeFilterCountMin").value = "";
-    document.getElementById("rangeFilterCountMax").value = "";
-
-    minCount = undefined;
-    maxCount = undefined;
-
-});
-
 document.getElementById("rangeFilterCount").addEventListener("click", function () {
     //Obtener mínimo y máximo del rango
     minCount = document.getElementById("rangeFilterMin").value;
@@ -106,4 +97,13 @@ document.getElementById("rangeFilterCount").addEventListener("click", function (
     }
 
     showProductsList();
+});
+
+document.getElementById("clearRangeFilter").addEventListener("click", function () {
+    document.getElementById("rangeFilterCountMin").value = "";
+    document.getElementById("rangeFilterCountMax").value = "";
+
+    minCount = undefined;
+    maxCount = undefined;
+
 });
