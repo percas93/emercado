@@ -81,24 +81,6 @@ document.getElementById("sortByCount").addEventListener("click", function () {
 });
 
 document.getElementById("rangeFilterCount").addEventListener("click", function () {
-    //Obtener mínimo y máximo del rango
-    minCount = document.getElementById("rangeFilterMin").value;
-    maxCount = document.getElementById("rangeFilterMax").value;
-
-    if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
-        minCount = parseInt(minCount);
-    }
-    else {
-        minCount = undefined;
-    }
-
-    if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
-        maxCount = parseInt(maxCount);
-    }
-    else {
-        maxCount = undefined;
-    }
-
     showProductsList();
 });
 
