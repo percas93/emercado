@@ -1,49 +1,7 @@
 let productsArray = []; /*Variable donde guardar el return del getJSONData
-                utilizamos una array para poder recorrerlo con un for*/
+                        utilizamos una array para poder recorrerlo con un for*/
 
 let infoCat = ""
-
-function sortProducts(criteria, array){
-    let result = [];
-    if (criteria === ORDER_ASC_BY_NAME)
-    {
-        result = array.sort(function(a, b) {
-            if ( a.name < b.name ){ return -1; }
-            if ( a.name > b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_DESC_BY_NAME){
-        result = array.sort(function(a, b) {
-            if ( a.name > b.name ){ return -1; }
-            if ( a.name < b.name ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_PROD_COUNT){
-        result = array.sort(function(a, b) {
-            let aCount = parseInt(a.productCount);
-            let bCount = parseInt(b.productCount);
-
-            if ( aCount > bCount ){ return -1; }
-            if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
-    }
-
-    return result;
-}
-
-function sortAndShowProducts(sortCriteria, categoriesArray){
-    currentSortCriteria = sortCriteria;
-
-    if(categoriesArray != undefined){
-        currentProductsArray = productsArray;
-    }
-
-    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
-
-    //Muestro las categorías ordenadas
-    showProductsList();
-}
 
 function showProductsList() {
 
@@ -94,11 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         document.getElementById("sortAsc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_ASC_BY_NAME, productsArray);
+            productsArray.sort(a, b){
+                return a.soldCount - b.soldCount;
+            }
         });
     
         document.getElementById("sortDesc").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_DESC_BY_NAME, productsArray);
+            productsArray.sort(a, b){
+                return a.soldCount - b.soldCount;
+            }
+            productsArray.reverse();
+            showProductsList();
         });
     
         document.getElementById("sortByCount").addEventListener("click", function(){
