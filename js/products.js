@@ -85,7 +85,7 @@ document.getElementById("rangeFilterCount").addEventListener("click", function (
 });
 
 document.getElementById("clearRangeFilter").addEventListener("click", function () {
-    document.getElementById("rangeFilterCountMin").value = "";
-    document.getElementById("rangeFilterCountMax").value = "";
+    document.getElementById("rangeFilterMin").value = "";
+    document.getElementById("rangeFilterMax").value = "";
     showProductsList();
 });
