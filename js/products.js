@@ -38,9 +38,9 @@ function showProductsList() {
                 </div>
             </div>
             `
-        document.getElementById("prod-list-container").innerHTML = textoaAgregar;
         }
     }
+    document.getElementById("prod-list-container").innerHTML = textoaAgregar;
 
 }
 
