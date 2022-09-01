@@ -38,7 +38,7 @@ function changeTitles() {
 //SOBRE EL ESTILO: Está claro que no acabo de entender las clases del bootstrap, las tomé del ejercicio 4.6
 
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     showUserButton();
 
     changeTitles(); //Agrega la categoría en título y productos
@@ -50,55 +50,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 showProductsList(); //Agrega los productos
             }
         });
+    });
 
-        document.getElementById("sortAsc").addEventListener("click", function(){
-            productsArray.sort(a, b){
-                return a.soldCount - b.soldCount;
-            }
+    document.getElementById("sortAsc").addEventListener("click", function () {
+        productsArray.sort(function (a, b) {
+            return b.soldCount - a.soldCount;
         });
-    
-        document.getElementById("sortDesc").addEventListener("click", function(){
-            productsArray.sort(a, b){
-                return a.soldCount - b.soldCount;
-            }
-            productsArray.reverse();
-            showProductsList();
+        showProductsList();
+    });
+
+    document.getElementById("sortDesc").addEventListener("click", function () {
+        productsArray.sort(function (a, b) {
+            return b.soldCount - a.soldCount;
         });
-    
-        document.getElementById("sortByCount").addEventListener("click", function(){
-            sortAndShowProducts(ORDER_BY_PROD_COUNT, productsArray);
-        });
-    
-        document.getElementById("clearRangeFilter").addEventListener("click", function(){
-            document.getElementById("rangeFilterCountMin").value = "";
-            document.getElementById("rangeFilterCountMax").value = "";
-    
+        productsArray.reverse();
+        showProductsList();
+    });
+
+    document.getElementById("clearRangeFilter").addEventListener("click", function () {
+        document.getElementById("rangeFilterCountMin").value = "";
+        document.getElementById("rangeFilterCountMax").value = "";
+
+        minCount = undefined;
+        maxCount = undefined;
+
+    });
+
+    document.getElementById("rangeFilterCount").addEventListener("click", function () {
+        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+        //de productos por categoría.
+        minCount = document.getElementById("rangeFilterCountMin").value;
+        maxCount = document.getElementById("rangeFilterCountMax").value;
+
+        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
+            minCount = parseInt(minCount);
+        }
+        else {
             minCount = undefined;
+        }
+
+        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0) {
+            maxCount = parseInt(maxCount);
+        }
+        else {
             maxCount = undefined;
-    
-        });
-    
-        document.getElementById("rangeFilterCount").addEventListener("click", function(){
-            //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-            //de productos por categoría.
-            minCount = document.getElementById("rangeFilterCountMin").value;
-            maxCount = document.getElementById("rangeFilterCountMax").value;
-    
-            if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
-                minCount = parseInt(minCount);
-            }
-            else{
-                minCount = undefined;
-            }
-    
-            if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
-                maxCount = parseInt(maxCount);
-            }
-            else{
-                maxCount = undefined;
-            }
-    
-            showProductsList();
-        });
+        }
+
+        showProductsList();
+    });
 
 });
