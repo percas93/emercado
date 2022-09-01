@@ -1,8 +1,22 @@
-let productsArray = []; /*Variable donde guardar el return del getJSONData
-                        utilizamos una array para poder recorrerlo con un for*/
+let productsArray = []; 
 
-let infoCat = ""
+//EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
+document.addEventListener("DOMContentLoaded", function () {
 
+    showUserButton();
+
+    changeTitles();
+
+    getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
+        .then(function (result) {
+            if (result.status === 'ok') {
+                productsArray = result.data.products;
+                showProductsList();
+            }
+        });
+});
+
+//FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
 function showProductsList() {
 
     let textoaAgregar = ""
@@ -28,6 +42,7 @@ function showProductsList() {
 
 }
 
+//FUNCIÓN QUE AGREGA LOS TÍTULOS SEGÚN CATEGORÍA GUARDADA
 function changeTitles() {
 
     document.getElementById("prod-title").innerHTML = localStorage.getItem("catName");
@@ -35,23 +50,8 @@ function changeTitles() {
 
 }
 
-//SOBRE EL ESTILO: Está claro que no acabo de entender las clases del bootstrap, las tomé del ejercicio 4.6
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    showUserButton();
-
-    changeTitles(); //Agrega la categoría en título y productos
-
-    getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
-        .then(function (result) {
-            if (result.status === 'ok') {
-                productsArray = result.data.products; //Guarda el return del getJSONDATA en variable autos
-                showProductsList(); //Agrega los productos
-            }
-        });
-});
-
+//CLICK EN BOTÓN DE ORDENAMIENTO ASCENDENTE (PRECIO)
 document.getElementById("sortAsc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return a.cost - b.cost;
@@ -59,6 +59,7 @@ document.getElementById("sortAsc").addEventListener("click", function () {
     showProductsList();
 });
 
+//CLICK EN BOTÓN DE ORDENAMIENTO DESCENDENTE (PRECIO)
 document.getElementById("sortDesc").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.cost - a.cost;
@@ -66,6 +67,7 @@ document.getElementById("sortDesc").addEventListener("click", function () {
     showProductsList();
 });
 
+//CLICK EN BOTÓN DE ORDENAMIENTO DESCENDENTE (VENDIDOS)
 document.getElementById("sortByCount").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
         return b.soldCount - a.soldCount;
@@ -85,8 +87,8 @@ document.getElementById("clearRangeFilter").addEventListener("click", function (
 document.getElementById("rangeFilterCount").addEventListener("click", function () {
     //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
     //de productos por categoría.
-    minCount = document.getElementById("rangeFilterCountMin").value;
-    maxCount = document.getElementById("rangeFilterCountMax").value;
+    minCount = document.getElementById("rangeFilterMin").value;
+    maxCount = document.getElementById("rangeFilterMax").value;
 
     if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0) {
         minCount = parseInt(minCount);
