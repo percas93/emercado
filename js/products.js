@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showProductsList();
 
+    document.getElementById("rangeFilterMin").value = "";//Para limpiar los inputs en caso de que se recargue la página
+    document.getElementById("rangeFilterMax").value = "";
+
 });
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
