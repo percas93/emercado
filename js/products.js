@@ -21,7 +21,8 @@ function showProductsList() {
 
     let textoaAgregar = ""
     for (let i = 0; i < productsArray.length; i++) {
-        textoaAgregar += `
+        if (productsArray[i].cost >= minCount || minCount == undefined && productsArray[i].cost <= maxCount || maxCount == undefined) {
+            textoaAgregar += `
             <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
@@ -37,6 +38,7 @@ function showProductsList() {
                 </div>
             </div>
             `
+        }
     }
     document.getElementById("prod-list-container").innerHTML = textoaAgregar;
 
@@ -85,8 +87,7 @@ document.getElementById("clearRangeFilter").addEventListener("click", function (
 });
 
 document.getElementById("rangeFilterCount").addEventListener("click", function () {
-    //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-    //de productos por categoría.
+    //Obtener mínimo y máximo del rango
     minCount = document.getElementById("rangeFilterMin").value;
     maxCount = document.getElementById("rangeFilterMax").value;
 
