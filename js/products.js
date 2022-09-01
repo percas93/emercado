@@ -24,7 +24,7 @@ function showProductsList() {
 
     let textoaAgregar = ""
     for (let i = 0; i < productsArray.length; i++) {
-        if ((isNaN(minCount) || productsArray[i].cost >= minCount && isNaN(maxCount) || productsArray[i].cost <= maxCount)) {
+        if (isNaN(minCount) || productsArray[i].cost >= minCount && isNaN(maxCount) || productsArray[i].cost <= maxCount) {
             textoaAgregar += `
             <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
