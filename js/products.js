@@ -7,13 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     changeTitles();
 
-    getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json")
+    getJSONData(PRODUCTS_URL + localStorage.getItem("catID") + ".json") //Función que crea lista a partir del JSON
         .then(function (result) {
             if (result.status === 'ok') {
                 productsArray = result.data.products;
-                showProductsList();
             }
         });
+
+    showProductsList();
+
 });
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
@@ -80,10 +82,12 @@ document.getElementById("sortByCount").addEventListener("click", function () {
     showProductsList();
 });
 
+//CLICK EN BOTÓN FILTRAR (El filtrado en sí ocurre en showProductsList())
 document.getElementById("rangeFilterCount").addEventListener("click", function () {
     showProductsList();
 });
 
+//CLICK EN BOTÓN LIMPIAR (Limpia valores de inputs y vuelve a rellenar el HTML)
 document.getElementById("clearRangeFilter").addEventListener("click", function () {
     document.getElementById("rangeFilterMin").value = "";
     document.getElementById("rangeFilterMax").value = "";
