@@ -18,10 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
 function showProductsList() {
+    
+    minCount = parseInt(document.getElementById("rangeFilterMin").value);
+    maxCount = parseInt(document.getElementById("rangeFilterMax").value);
 
     let textoaAgregar = ""
     for (let i = 0; i < productsArray.length; i++) {
-        if ((minCount == undefined || productsArray[i].cost >= minCount) && (maxCount == undefined || productsArray[i].cost <= maxCount)) {
+        if ((isNaN(minCount) || productsArray[i].cost >= minCount && isNaN(maxCount) || productsArray[i].cost <= maxCount)) {
             textoaAgregar += `
             <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
