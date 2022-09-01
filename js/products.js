@@ -67,9 +67,9 @@ document.getElementById("sortDesc").addEventListener("click", function () {
     showProductsList();
 });
 
-document.getElementById("sortDesc").addEventListener("click", function () {
+document.getElementById("sortByCount").addEventListener("click", function () {
     productsArray.sort(function (a, b) {
-        return b.sortByCount - a.sortByCount;
+        return b.soldCount - a.soldCount;
     });
     productsArray.reverse();
     showProductsList();
