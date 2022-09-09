@@ -32,8 +32,8 @@ function showProductsList() {
     for (let i = 0; i < productsArray.length; i++) {
         if ((isNaN(minCount) || productsArray[i].cost >= minCount) && (isNaN(maxCount) || productsArray[i].cost <= maxCount)) {
             textoaAgregar += `
-            <div class="list-group-item list-group-item-action cursor-active">
-                <div class="row" onclick="localStorage.setItem('prod-id', ${productsArray[i].id})">
+            <div class="list-group-item list-group-item-action cursor-active" onclick="localStorage.setItem('prodID', ${productsArray[i].id})">
+                <div class="row">
                     <div class="col-3">
                         <img src="${productsArray[i].image}" alt="${productsArray[i].description}" class="img-thumbnail">
                     </div>
