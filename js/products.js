@@ -97,3 +97,8 @@ document.getElementById("clearRangeFilter").addEventListener("click", function (
     document.getElementById("rangeFilterMax").value = "";
     showProductsList();
 });
+
+//CLICK EN BOTÓN LIMPIAR (Limpia valores de inputs y vuelve a rellenar el HTML)
+document.getElementsByClassName("list-group-item list-group-item-action cursor-active").addEventListener("click", function() {
+    window.location = "product-info.html"
+});
