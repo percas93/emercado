@@ -4,7 +4,7 @@ let productsArray = []; //Lista de productos para JavaScript
 document.addEventListener("DOMContentLoaded", function () {
 
     loginCheck();
-    
+
     showUserButton();
 
     changeTitles();
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
 function showProductsList() {
-    
+
     minCount = parseInt(document.getElementById("rangeFilterMin").value);
     maxCount = parseInt(document.getElementById("rangeFilterMax").value);
 
@@ -99,6 +99,8 @@ document.getElementById("clearRangeFilter").addEventListener("click", function (
 });
 
 //CLICK EN PRODUCTOS (Redirige a product-info.html)
-document.getElementsByClassName("list-group-item list-group-item-action cursor-active").this.addEventListener("click", function() {
-    window.location = "product-info.html"
+document.getElementsByClassName("list-group-item list-group-item-action cursor-active").forEach(producto => {
+    producto.addEventListener("click", function () {
+        window.location = "product-info.html"
+    });
 });
