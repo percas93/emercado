@@ -99,7 +99,7 @@ document.getElementById("clearRangeFilter").addEventListener("click", function (
 });
 
 //CLICK EN PRODUCTOS (Redirige a product-info.html)
-document.getElementsByClassName("list-group-item list-group-item-action cursor-active").forEach(producto => {
+Array.from(document.getElementsByClassName("list-group-item list-group-item-action cursor-active")).forEach(producto => {
     producto.addEventListener("click", function () {
         window.location = "product-info.html"
     });
