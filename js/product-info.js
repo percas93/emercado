@@ -1,7 +1,7 @@
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    getJSONData(PRODUCTS_URL + urlDerivation + ".json") //Función que crea lista a partir del JSON
+    getJSONData(PRODUCTS_URL + urlDerivation() + ".json") //Función que crea lista a partir del JSON
         .then(function (result) {
             if (result.status === 'ok') {
                 productsArray = result.data.products;
