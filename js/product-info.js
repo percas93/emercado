@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
             if (result.status === 'ok') {
                 productsArray = result.data.products;
-                showProductsList();
             }
         });
 
