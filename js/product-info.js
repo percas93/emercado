@@ -1,4 +1,5 @@
-let specificProduct = []
+let specificProduct = {}
+let contador = 0;
 
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 arrayAuxiliar.forEach(producto => {
                     if (producto.id == localStorage.getItem("prodID")) {
                         specificProduct =  producto;
+                        contador =+ 1;
                         return true; //Esto es para terminar la iteración al encontrar el producto
                     }
                 });
