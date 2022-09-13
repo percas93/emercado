@@ -1,10 +1,18 @@
+let specificProduct = []
+
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    getJSONData(PRODUCTS_URL + urlDerivation() + ".json") //Función que crea lista a partir del JSON
+    getJSONData(PRODUCTS_URL + urlDerivation() + ".json") //
         .then(function (result) {
             if (result.status === 'ok') {
-                productsArray = result.data.products;
+                let arrayAuxiliar = result.data.products;
+                arrayAuxiliar.forEach(producto => {
+                    if (producto.id == localStorage.getItem("prodID")) {
+                        specificProduct =  producto;
+                        return true; //Esto es para terminar la iteración al encontrar el producto
+                    }
+                });
             }
         });
 
@@ -21,9 +29,6 @@ function urlDerivation() {
 /*
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
 function showProductsList() {
-
-    minCount = parseInt(document.getElementById("rangeFilterMin").value);
-    maxCount = parseInt(document.getElementById("rangeFilterMax").value);
 
     let textoaAgregar = ""
     for (let i = 0; i < productsArray.length; i++) {
