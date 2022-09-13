@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.status === 'ok') {
                 let arrayAuxiliar = result.data.products;
                 arrayAuxiliar.forEach(producto => {
+                    contador =+ 1;
                     if (producto.id == localStorage.getItem("prodID")) {
                         specificProduct =  producto;
-                        contador =+ 1;
                         return true; //Esto es para terminar la iteración al encontrar el producto
                     }
                 });
