@@ -1,5 +1,4 @@
 let specificProduct = {}
-let contador = 0;
 
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
@@ -10,17 +9,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 specificProduct = result.data;
             }
         });
-    
-    });
+
+    showProductsInfo()
+
+});
 
 /*
-//FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
-function showProductsList() {
+//FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
+function showProductsInfo() {
 
-    let textoaAgregar = ""
-    for (let i = 0; i < productsArray.length; i++) {
-        if ((isNaN(minCount) || productsArray[i].cost >= minCount) && (isNaN(maxCount) || productsArray[i].cost <= maxCount)) {
-            textoaAgregar += `
+    let textoaAgregar =
+        `
             <div class="list-group-item list-group-item-action cursor-active" onclick="localStorage.setItem('prodID', ${productsArray[i].id}); window.location='product-info.html';">
                 <div class="row">
                     <div class="col-3">
@@ -36,8 +35,8 @@ function showProductsList() {
                 </div>
             </div>
             `
-        }
-    }
-    document.getElementById("prod-list-container").innerHTML = textoaAgregar;
+
+    
+document.getElementById("prod-info-container").innerHTML = textoaAgregar;
 
 }*/
