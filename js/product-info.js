@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 let arrayAuxiliar = result.data.products;
                 arrayAuxiliar.forEach(producto => {
                     contador += 1;
-                    console.log(contador);
                     if (producto.id == localStorage.getItem("prodID")) {
                         specificProduct =  producto;
                         return true; //Esto es para terminar la iteración al encontrar el producto
