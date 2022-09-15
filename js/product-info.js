@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    showProductsInfo()
+    showProductInfo()
 
 });
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
-function showProductsInfo() {
+function showProductInfo() {
 
     document.getElementById("prod-name-to-show").textContent = specificProduct.name
 
