@@ -4,29 +4,14 @@ let contador = 0;
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    getJSONData(PRODUCTS_URL + urlDerivation() + ".json") //
+    getJSONData(PRODUCTS_URLPRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
-                let arrayAuxiliar = result.data.products;
-                arrayAuxiliar.forEach(producto => {
-                    contador += 1;
-                    if (producto.id == localStorage.getItem("prodID")) {
-                        specificProduct =  producto;
-                        return true; //Esto es para terminar la iteración al encontrar el producto
-                    }
-                });
+                specificProduct = result.data;
             }
         });
-
-});
-
-//FUNCIÓN QUE DETERMINA EL URL PARA EL FETCH A PARTIR DEL CÓDIGO DEL PRODUCTO
-function urlDerivation() {
-    if (localStorage.getItem("prodID").substring(0, 3) == "509"){return "101"};
-    if (localStorage.getItem("prodID").substring(0, 3) == "507"){return "102"};
-    if (localStorage.getItem("prodID").substring(0, 3) == "608"){return "103"};
-    if (localStorage.getItem("prodID").substring(0, 3) == "402"){return "105"};
-}
+    
+    });
 
 /*
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DE LA LISTA
