@@ -4,7 +4,7 @@ let contador = 0;
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    getJSONData(PRODUCTS_URLPRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json")
+    getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
                 specificProduct = result.data;
