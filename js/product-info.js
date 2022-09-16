@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 specificProduct = result.data;
             }
         });
-});
 
-document.addEventListener("load", showProductInfo())
+    showProductInfo();
+
+});
 
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
 function showProductInfo() {
