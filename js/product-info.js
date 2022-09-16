@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    showProductInfo()
+    showProductInfo();
 
 });
 
