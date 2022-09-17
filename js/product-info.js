@@ -21,5 +21,9 @@ function showProductInfo() {
     document.getElementById("prod-desc-to-show").textContent = specificProduct.description
     document.getElementById("prod-cat-to-show").textContent = specificProduct.category
     document.getElementById("prod-u-sold-to-show").textContent = specificProduct.soldCount
+    specificProduct.images.forEach(pic => {
+        document.getElementById("img-grid").innerHTML += 
+        "<div id='col'><img src=" + pic + "><div>"
+    });
 
 }
