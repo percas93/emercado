@@ -23,7 +23,7 @@ function showProductInfo() {
     document.getElementById("prod-u-sold-to-show").textContent = specificProduct.soldCount
     specificProduct.images.forEach(pic => {
         document.getElementById("img-grid").innerHTML += 
-        "<div id='col' width='auto' height='auto'><img src=" + pic + "><div>"
+        "<div class='col'><img width=auto height=auto src=" + pic + "><div>"
     });
 
 }
