@@ -7,10 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(function (result) {
             if (result.status === 'ok') {
                 specificProduct = result.data;
+                showProductInfo();
             }
         });
-
-    showProductInfo();
 
 });
 
