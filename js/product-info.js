@@ -41,7 +41,7 @@ function showProductInfo() {
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
 
-    commentsArray.forEach(comment => {
+    commentsArray.foreach(comment => {
         document.getElementById("comment-section").innerHTML += `
         <li class="list-group-item justify-content-between">
               <div>
