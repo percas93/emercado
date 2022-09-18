@@ -71,7 +71,7 @@ function showCommentSection() {
               </div>
             </li>
         `
-        for (let num = 1; num < comment.score && num > 0; num++){
+        for (let num = 1; num < commentsArray[j].score && num > 0; num++){
             document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
         }
     }
