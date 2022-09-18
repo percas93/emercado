@@ -1,5 +1,5 @@
 let specificProduct = {}
-let commentsArray = []
+let commentsArray;
 
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + ".json")
         .then(function (result2) {
             if (result2.status === 'ok') {
-                commentsArray = JSON.parse(JSON.parse(result2.data));
-                showCommentSection();
+                commentsArray = result2.data;
+                //showCommentSection();
             }
         });
 
