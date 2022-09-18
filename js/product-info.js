@@ -22,6 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener('click', function {
+    let commentToAdd = {
+        product: localStorage.getItem('prodID'),
+        score: 3,
+        description: document.getElementById('commentBox').textContent,
+        user: localStorage.getItem('user'),
+        dateTime: 123
+    };
+    commentsArray.push(commentToAdd);
+    showCommentSection();
+
+})
+
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
 function showProductInfo() {
 
