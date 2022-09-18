@@ -56,34 +56,24 @@ function showCommentSection() {
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
 
-    for (const comment of commentsArray) {
+    let contador = 0
+    for (let j = 0; j < commentsArray.length; j++) {
         document.getElementById("comment-section").innerHTML += `
         <li class="list-group-item d-flex justify-content-between">
               <div>
-                <h4 class="my-0">${comment.user}</h4><p>${comment.dateTime}</p>
-                <span class="fa fa-star" id="star1"></span>
-                <span class="fa fa-star" id="star2"></span>
-                <span class="fa fa-star" id="star3"></span>
-                <span class="fa fa-star" id="star4"></span>
-                <span class="fa fa-star" id="star5"></span>
-                <p>${comment.description}</p>
+                <h4 class="my-0">${commentsArray[j].user}</h4><p>${commentsArray[j].dateTime}</p>
+                <span class="fa fa-star" id="com${contador}-star1"></span>
+                <span class="fa fa-star" id="com${contador}-star2"></span>
+                <span class="fa fa-star" id="com${contador}-star3"></span>
+                <span class="fa fa-star" id="com${contador}-star4"></span>
+                <span class="fa fa-star" id="com${contador}-star5"></span>
+                <p>${commentsArray[j].description}</p>
               </div>
             </li>
         `
         for (let num = 1; num < comment.score && num > 0; num++){
-            document.getElementById("star" + num).setAttribute('class', 'fa fa-star checked');
+            document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
         }
     }
-    /*
-    commentsArray.foreach(comment => {
-        document.getElementById("comment-section").innerHTML += `
-        <li class="list-group-item justify-content-between">
-              <div>
-                <h6 class="my-0">${comment.user}</h6>
-                <p>${comment.description}</p>
-              </div>
-            </li>
-        `
-    });*/
 
 }
