@@ -51,6 +51,7 @@ function showCommentSection() {
             </li>
         `
     }
+}
 
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
