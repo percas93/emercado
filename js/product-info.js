@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + ".json")
-        .then(function (result) {
-            if (result.status === 'ok') {
-                commentsArray = JSON.parse(result.status);
+        .then(function (result2) {
+            if (result2.status === 'ok') {
+                commentsArray = JSON.parse(result2.status);
                 showCommentSection();
             }
         });
