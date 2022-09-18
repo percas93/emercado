@@ -41,6 +41,17 @@ function showProductInfo() {
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
 
+    for (let i; i < commentsArray.length; i++) {
+        document.getElementById("comment-section").innerHTML += `
+        <li class="list-group-item justify-content-between">
+              <div>
+                <h6 class="my-0">${commentsArray[i].user}</h6>
+                <p>${commentsArray[i].description}</p>
+              </div>
+            </li>
+        `
+    }
+    /*
     commentsArray.foreach(comment => {
         document.getElementById("comment-section").innerHTML += `
         <li class="list-group-item justify-content-between">
@@ -50,6 +61,6 @@ function showCommentSection() {
               </div>
             </li>
         `
-    });
+    });*/
 
 }
