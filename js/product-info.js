@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
-                let commentsjson = result.data
-                commentsArray = JSON.parse(commentsjson);
+                commentsArray = JSON.parse(result.status);
                 showCommentSection();
             }
         });
