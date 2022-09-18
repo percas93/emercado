@@ -43,9 +43,9 @@ function showCommentSection() {
 
     for (const comment of commentsArray) {
         document.getElementById("comment-section").innerHTML += `
-        <li class="list-group-item justify-content-between">
+        <li class="list-group-item d-flex justify-content-between">
               <div>
-                <h4 class="my-0">${comment.user}</h4>
+                <h4 class="my-0">${comment.user}</h4><p>${comment.dateTime}</p>
                 <p>${comment.description}</p>
               </div>
             </li>
