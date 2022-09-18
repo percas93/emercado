@@ -46,22 +46,10 @@ function showCommentSection() {
         <li class="list-group-item justify-content-between">
               <div>
                 <h6 class="my-0">${comment.user}</h6>
-                <p>${description}</p>
+                <p>${comment.description}</p>
               </div>
             </li>
         `
-        document.getElementById("comment-section").innerHTML += uno + comment.user + dos
-        
-    })
-    document.getElementById("prod-name-to-show").textContent = specificProduct.name
-    document.getElementById("prod-cost-to-show").textContent = specificProduct.currency + " " + specificProduct.cost
-    document.getElementById("prod-desc-to-show").textContent = specificProduct.description
-    document.getElementById("prod-cat-to-show").textContent = specificProduct.category
-    document.getElementById("prod-u-sold-to-show").textContent = specificProduct.soldCount
-    specificProduct.images.forEach(pic => {
-        document.getElementById("img-grid").innerHTML +=
-            "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
-    document.getElementById("comment-section")
 
 }
