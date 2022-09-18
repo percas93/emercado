@@ -74,6 +74,7 @@ function showCommentSection() {
         for (let num = 1; num < commentsArray[j].score && num > 0; num++){
             document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
         }
+        contador += 1
     }
 
 }
