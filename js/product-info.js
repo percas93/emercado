@@ -39,7 +39,6 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
 function showProductInfo() {
 
-    document.getElementById("img-grid").innerHTML = ""
     document.getElementById("prod-name-to-show").textContent = specificProduct.name
     document.getElementById("prod-cost-to-show").textContent = specificProduct.currency + " " + specificProduct.cost
     document.getElementById("prod-desc-to-show").textContent = specificProduct.description
@@ -49,13 +48,13 @@ function showProductInfo() {
         document.getElementById("img-grid").innerHTML +=
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
-    document.getElementById("comment-section")
 
 }
 
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
 
+    document.getElementById("comment-section").innerHTML = "" //Para resetear en el caso que se use la función para volver a cargar comentarios al agregar más
     let contador = 0
     for (let j = 0; j < commentsArray.length; j++) {
         document.getElementById("comment-section").innerHTML += `
