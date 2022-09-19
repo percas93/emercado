@@ -27,9 +27,9 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
     let commentToAdd = {
         product: localStorage.getItem('prodID'),
         score: 3,
-        description: document.getElementById('commentBox').textContent,
+        description: document.getElementById('commentBox').value,
         user: localStorage.getItem('user'),
-        dateTime: 123
+        dateTime: "2022-01-04 11:16:48"
     };
     commentsArray.push(commentToAdd);
     showCommentSection();
