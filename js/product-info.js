@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+//FUNCIÓN QUE AGREGA COMENTARIO AL ARRAY JS Y VUELVE A CARGAR COMENTARIOS
 document.getElementById("btnEnviar").addEventListener('click', function () {
     let commentToAdd = {
         product: localStorage.getItem('prodID'),
@@ -50,21 +51,6 @@ function showProductInfo() {
     });
     document.getElementById("comment-section")
 
-}
-
-//FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
-function showCommentSection() {
-
-    for (const comment of commentsArray) {
-        document.getElementById("comment-section").innerHTML += `
-        <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <nobr><h4 class="my-0">${comment.user}</h4><p>${comment.dateTime}</p></nobr>
-                <p>${comment.description}</p>
-              </div>
-            </li>
-        `
-    }
 }
 
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
