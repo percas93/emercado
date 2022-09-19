@@ -29,7 +29,7 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
         score: 3,
         description: document.getElementById('commentBox').value,
         user: localStorage.getItem('user'),
-        dateTime: "2022-01-04 11:16:48"
+        dateTime: "[fecha ilustrativa]2022-01-04 11:16:48"
     };
     commentsArray.push(commentToAdd);
     showCommentSection();
