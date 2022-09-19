@@ -61,7 +61,7 @@ function showCommentSection() {
         <li class="list-group-item d-flex justify-content-between col">
               <div>
                 <div style="display: inline-flex">
-                    <h4 class="my-0">${commentsArray[j].user}</h4><p>${commentsArray[j].dateTime}</p>
+                    <h4 class="my-0">${commentsArray[j].user}</h4><p>      ${commentsArray[j].dateTime}     </p>
                     <span class="fa fa-star" id="com${contador}-star1"></span>
                     <span class="fa fa-star" id="com${contador}-star2"></span>
                     <span class="fa fa-star" id="com${contador}-star3"></span>
