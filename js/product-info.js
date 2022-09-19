@@ -58,8 +58,9 @@ function showCommentSection() {
     let contador = 0
     for (let j = 0; j < commentsArray.length; j++) {
         document.getElementById("comment-section").innerHTML += `
-        <li class="list-group-item d-flex justify-content-between">
+        <li class="list-group-item d-flex justify-content-between col">
               <div>
+              <div style="inline-block">
                 <h4 class="my-0">${commentsArray[j].user}</h4><p>${commentsArray[j].dateTime}</p>
                 <span class="fa fa-star" id="com${contador}-star1"></span>
                 <span class="fa fa-star" id="com${contador}-star2"></span>
@@ -67,10 +68,11 @@ function showCommentSection() {
                 <span class="fa fa-star" id="com${contador}-star4"></span>
                 <span class="fa fa-star" id="com${contador}-star5"></span>
                 <p>${commentsArray[j].description}</p>
+                </div>
               </div>
             </li>
         `
-        for (let num = 1; num < commentsArray[j].score && num > 0; num++){
+        for (let num = 1; num < commentsArray[j].score && num > 0; num++) {
             document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
         }
         contador += 1
