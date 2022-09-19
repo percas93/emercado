@@ -60,15 +60,15 @@ function showCommentSection() {
         document.getElementById("comment-section").innerHTML += `
         <li class="list-group-item d-flex justify-content-between col">
               <div>
-                <div style="inline-block">
+                <div style="display: inline-flex">
                     <h4 class="my-0">${commentsArray[j].user}</h4><p>${commentsArray[j].dateTime}</p>
                     <span class="fa fa-star" id="com${contador}-star1"></span>
                     <span class="fa fa-star" id="com${contador}-star2"></span>
                     <span class="fa fa-star" id="com${contador}-star3"></span>
                     <span class="fa fa-star" id="com${contador}-star4"></span>
                     <span class="fa fa-star" id="com${contador}-star5"></span>
-                    <p>${commentsArray[j].description}</p>
                 </div>
+                <p>${commentsArray[j].description}</p>
               </div>
             </li>
         `
