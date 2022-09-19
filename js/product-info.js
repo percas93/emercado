@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-document.addEventListener('click', function () {
+document.getElementById("btnEnviar").addEventListener('click', function () {
     let commentToAdd = {
         product: localStorage.getItem('prodID'),
         score: 3,
@@ -38,6 +38,7 @@ document.addEventListener('click', function () {
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
 function showProductInfo() {
 
+    document.getElementById("img-grid").innerHTML = ""
     document.getElementById("prod-name-to-show").textContent = specificProduct.name
     document.getElementById("prod-cost-to-show").textContent = specificProduct.currency + " " + specificProduct.cost
     document.getElementById("prod-desc-to-show").textContent = specificProduct.description
