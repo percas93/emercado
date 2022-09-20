@@ -33,6 +33,9 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
     };
     commentsArray.push(commentToAdd);
     showCommentSection();
+    //Restaurar valores de inputs:
+    document.getElementById('inputScore').value = 1
+    document.getElementById('commentBox').value = ""
 
 });
 
