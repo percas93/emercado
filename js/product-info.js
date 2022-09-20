@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("btnEnviar").addEventListener('click', function () {
     let commentToAdd = {
         product: localStorage.getItem('prodID'),
-        score: 3,
+        score: document.getElementById('inputScore').value,
         description: document.getElementById('commentBox').value,
         user: localStorage.getItem('user'),
         dateTime: "[fecha ilustrativa]2022-01-04 11:16:48"
