@@ -4,6 +4,8 @@ let commentsArray;
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
+    showUserButton();
+    
     getJSONData(PRODUCT_INFO_URL + localStorage.getItem("prodID") + ".json")
         .then(function (result) {
             if (result.status === 'ok') {
