@@ -54,10 +54,11 @@ function showProductInfo() {
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
     for (let i = 0; i < specificProduct.relatedProducts.length; i++) {
+        let observedRelProd = specificProduct.relatedProducts[i];
         let relatedProdToHTML = `
-        <div class='card' style='width:500px' onclick='localStorage.setItem("prodID", ${productsArray[i].id}); window.location.reload()'>
-        <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
-        <p class='card-footer'>${specificProduct.relatedProducts[i].name}</p>
+        <div class='card' style='width:500px' onclick='localStorage.setItem("prodID", ${observedRelProd.id}); window.location.reload()'>
+        <img class='card-img-top' src=${observedRelProd.image}>
+        <p class='card-footer'>${observedRelProd.name}</p>
         <div>
         `
         document.getElementById("related-Prod").innerHTML += relatedProdToHTML;
