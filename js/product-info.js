@@ -53,6 +53,16 @@ function showProductInfo() {
         document.getElementById("img-grid").innerHTML +=
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
+    let relatedIMGsHTML = ""
+    for (let i; i < specificProduct.relatedProducts.length; i++){
+        relatedIMGsHTML = `
+        <div class='card'>
+        <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
+        <p>${specificProduct.relatedProducts[i].name}</p>
+        <div>
+        `
+    }
+    document.getElementById("related-Prod").textContent = relatedIMGsHTML
 
 }
 
