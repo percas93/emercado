@@ -53,17 +53,15 @@ function showProductInfo() {
         document.getElementById("img-grid").innerHTML +=
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
-    let relatedProdToHTML = ""
-    for (let i; i < specificProduct.relatedProducts.length; i++){
-        relatedProdToHTML += `
+    for (let i; i < specificProduct.relatedProducts.length; i++) {
+        let relatedProdToHTML = `
         <div class='card'>
         <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
         <p>${specificProduct.relatedProducts[i].name}</p>
         <div>
         `
+        document.getElementById("related-Prod").innerHTML += relatedProdToHTML;
     };
-    console.log(relatedProdToHTML);
-    document.getElementById("related-Prod").innerHTML = relatedProdToHTML;
 
 }
 
@@ -88,7 +86,7 @@ function showCommentSection() {
               </div>
             </li>
         `
-        for ( let num = 1; num <= commentsArray[j].score && num > 0; num++) {
+        for (let num = 1; num <= commentsArray[j].score && num > 0; num++) {
             document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
         }
         contador += 1
