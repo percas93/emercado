@@ -55,9 +55,9 @@ function showProductInfo() {
     });
     for (let i = 0; i < specificProduct.relatedProducts.length; i++) {
         let relatedProdToHTML = `
-        <div class='card'>
+        <div class='card' style='width:500px' onclick='localStorage.setItem("prodID", ${productsArray[i].id}); window.location.reload()'>
         <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
-        <p>${specificProduct.relatedProducts[i].name}</p>
+        <p class='card-footer'>${specificProduct.relatedProducts[i].name}</p>
         <div>
         `
         document.getElementById("related-Prod").innerHTML += relatedProdToHTML;
