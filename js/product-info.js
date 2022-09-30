@@ -53,16 +53,17 @@ function showProductInfo() {
         document.getElementById("img-grid").innerHTML +=
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
-    let relatedIMGsHTML = ""
+    let relatedProdToHTML = ""
     for (let i; i < specificProduct.relatedProducts.length; i++){
-        relatedIMGsHTML += `
+        relatedProdToHTML += `
         <div class='card'>
         <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
         <p>${specificProduct.relatedProducts[i].name}</p>
         <div>
         `
-    }
-    document.getElementById("related-Prod").innerHTML = relatedIMGsHTML
+    };
+    console.log(relatedProdToHTML);
+    document.getElementById("related-Prod").innerHTML = relatedProdToHTML;
 
 }
 
