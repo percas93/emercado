@@ -53,7 +53,7 @@ function showProductInfo() {
         document.getElementById("img-grid").innerHTML +=
             "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
     });
-    for (let i; i < specificProduct.relatedProducts.length; i++) {
+    for (let i = 0; i < specificProduct.relatedProducts.length; i++) {
         let relatedProdToHTML = `
         <div class='card'>
         <img class='card-img-top' src=${specificProduct.relatedProducts[i].image}>
