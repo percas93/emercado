@@ -48,7 +48,7 @@ let getJSONData = function(url){ //Guarda en variable el procedimiento del fetch
 }
 
 let showUserButton = function() {
-  document.getElementById("navbarNav").innerHTML += `
+  document.getElementById("navBar").innerHTML += `
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${localStorage.getItem("user")}</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
