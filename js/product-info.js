@@ -56,7 +56,7 @@ function showProductInfo() {
     for (let i = 0; i < specificProduct.relatedProducts.length; i++) {
         let observedRelProd = specificProduct.relatedProducts[i];
         let relatedProdToHTML = `
-        <div class="col-3">
+        <div class="col-3 cursor-active">
         <div class='card' onclick='localStorage.setItem("prodID", ${observedRelProd.id}); window.location.reload()'>
         <img class='card-img-top' src=${observedRelProd.image}>
         <p class='card-text text-muted'>${observedRelProd.name}</p>
