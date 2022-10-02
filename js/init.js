@@ -49,10 +49,15 @@ let getJSONData = function(url){ //Guarda en variable el procedimiento del fetch
 
 let showUserButton = function() {
   document.getElementById("user-btn").innerHTML += `
-  <select class="form-select" aria-label="Disabled select example">
-  <option selected><a class="nav-link" href="my-profile.html">${localStorage.getItem("user")}</option>
-  <option value="1">Mi carrito</option>
-  <option value="2">Mi perfil</option>
-  <option value="3">Cerrar sesión</option>
-  `;
+  <div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ${localStorage.getItem("user")}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Mi carrito</a>
+    <a class="dropdown-item" href="#">Mi perfil</a>
+    <a class="dropdown-item" href="#">Cerrar sesión</a>
+  </div>
+  </div>`;
 }
