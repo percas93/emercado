@@ -59,7 +59,7 @@ function showProductInfo() {
         <div class="col-3">
         <div class='card' onclick='localStorage.setItem("prodID", ${observedRelProd.id}); window.location.reload()'>
         <img class='card-img-top' src=${observedRelProd.image}>
-        <p class='card-text'>${observedRelProd.name}</p>
+        <p class='card-text text-muted'>${observedRelProd.name}</p>
         </div>
         </div>
         `
