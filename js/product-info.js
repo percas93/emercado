@@ -99,10 +99,10 @@ function showCommentSection() {
 function addToLocalCart() {
     if (localStorage.getItem("localCart")) {
         auxString = localStorage.getItem("localCart");
-        auxString += `[{ 'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.unitCost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.image}' }]`;
+        auxString += `[{ 'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.unitCost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.images[0]}' }]`;
     }
     else {
-        auxString = `[{ 'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.unitCost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.image}' }]`;
+        auxString = `[{ 'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.unitCost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.images[0]}' }]`;
     }
     localStorage.setItem("localCart", auxString);
 }
