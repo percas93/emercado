@@ -94,3 +94,17 @@ function showCommentSection() {
     }
 
 }
+
+//FUNCIÓN QUE AGREGA OBJETOS AL CARRITO DEL localStorage
+function addToLocalCart() {
+    auxString = localStorage.getItem("localCart");
+    auxString += `[{
+        "id": "${specificProduct.id}"
+        "name": "${specificProduct.name}",
+        "count": 1,
+        "unitCost": ${specificProduct.unitCost},
+        "currency": "${specificProduct.currency}",
+        "image": "${specificProduct.image}"
+        }]`;
+    localStorage.setItem("localCart", auxString);
+}
