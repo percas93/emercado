@@ -95,6 +95,7 @@ function showCommentSection() {
 
 }
 
+/*
 //FUNCIÓN QUE AGREGA OBJETOS AL CARRITO DEL localStorage
 function addToLocalCart() {
     if (localStorage.getItem("localCart")) {
@@ -105,4 +106,11 @@ function addToLocalCart() {
         auxString = `{'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.cost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.images[0]}'}`;
     }
     localStorage.setItem("localCart", auxString);
+}*/
+
+function addToLocalCart() {
+    auxCartArray = localStorage.getItem(JSON.parse("localCart") || []);
+    prodObject = {'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.cost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.images[0]}'};
+    auxCartArray.push(prodObject);
+    localStorage.setItem("localCart", auxCartArray);
 }
