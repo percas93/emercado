@@ -9,11 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 arrayCart = result.data.articles;
                 let auxLSCart = JSON.parse(localStorage.getItem("localCart"));
                 arrayCart.append(auxLSCart);
-                gettingLSCart();
+                //gettingLSCart();
             }
         })
 });
 
+/*
 //FUNCIÓN QUE MUEVE PRODUCTOS DEL CARRITO DE COMPRAS SEGÚN URL AL ARRAY OPERATIVO
 function gettingJSONCart(arrayi, arrayf) {
     arrayi.forEach(product => {
@@ -34,4 +35,4 @@ function gettingLSCart() {
             arrayCart.push(object);
         }
     }
-};
+};*/
