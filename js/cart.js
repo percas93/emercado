@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.status === 'ok') {
                 arrayCart = result.data.articles;
                 let auxLSCart = JSON.parse(localStorage.getItem("localCart"));
-                arrayCart.append(auxLSCart);
+                arrayCart.push(auxLSCart);
                 //gettingLSCart();
             }
         })
