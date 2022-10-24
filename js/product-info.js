@@ -98,7 +98,7 @@ function showCommentSection() {
 //FUNCIÓN PARA AGREGAR PRODUCTOS AL CARRO DE localStorage
 function addToLocalCart() {
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
-    let prodObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
-    auxCartArray.push(prodObject);
+    let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
+    auxCartArray.push(auxProdObject);
     localStorage.setItem("localCart", JSON.stringify(auxCartArray));
 }
