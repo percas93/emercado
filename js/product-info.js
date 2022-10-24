@@ -110,7 +110,7 @@ function addToLocalCart() {
 
 function addToLocalCart() {
     auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
-    prodObject = {'id': '${specificProduct.id}', 'name': '${specificProduct.name}', 'count': 1, 'cost': '${specificProduct.cost}', 'currency': '${specificProduct.currency}', 'image': '${specificProduct.images[0]}'};
+    prodObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
     auxCartArray.push(prodObject);
     localStorage.setItem("localCart", JSON.stringify(auxCartArray));
 }
