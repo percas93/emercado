@@ -97,8 +97,8 @@ function showCommentSection() {
 
 //FUNCIÓN PARA AGREGAR PRODUCTOS AL CARRO DE localStorage
 function addToLocalCart() {
-    /*let*/var auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
-    /*let*/var auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
+    let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
+    let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
     if (auxCartArray.indexOf(auxProdObject) === -1) {
         auxCartArray.push(auxProdObject);
         localStorage.setItem("localCart", JSON.stringify(auxCartArray));
