@@ -99,6 +99,8 @@ function showCommentSection() {
 function addToLocalCart() {
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
     let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
-    auxCartArray.push(auxProdObject);
-    localStorage.setItem("localCart", JSON.stringify(auxCartArray));
+    if (!auxCartArray.includes(auxProdObject)) {
+        auxCartArray.push(auxProdObject);
+        localStorage.setItem("localCart", JSON.stringify(auxCartArray));
+    }
 }
