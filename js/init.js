@@ -61,10 +61,10 @@ let showUserButton = function () {
       `;
   }
   else {
-    document.getElementById("navBar").innerHTML += `
-    <li class="nav-item">
-    <a class="nav-link" href="login.html">Sign In</a>
+  document.getElementById("navBar").innerHTML += `
+  <li class="nav-item">
+  <a class="nav-link" href="login.html">Sign In</a>
   </li>
-      `
+  `
   }
 }

@@ -30,6 +30,8 @@ function updateTotalCosts(){
 document.addEventListener("DOMContentLoaded", function(e){
     loginCheck();
 
+    showUserButton();
+
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();
