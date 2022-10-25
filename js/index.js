@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    loginCheck();
-
     showUserButton();
     
     document.getElementById("autos").addEventListener("click", function() {

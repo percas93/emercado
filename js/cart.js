@@ -3,6 +3,8 @@ arrayCart = []
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
+    loginCheck();
+    
     getJSONData(CART_INFO_URL + 25801 + ".json")
         .then(function (result) {
             if (result.status === 'ok') {

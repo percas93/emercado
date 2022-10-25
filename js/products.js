@@ -3,8 +3,6 @@ let productsArray = []; //Lista de productos para JavaScript
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    loginCheck();
-
     showUserButton();
 
     changeTitles();
