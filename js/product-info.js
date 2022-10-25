@@ -95,15 +95,21 @@ function showCommentSection() {
 
 }
 
-//FUNCIÓN PARA AGREGAR PRODUCTOS AL CARRO DE localStorage
+//FUNCIÓN QUE AGREGA PRODUCTOS AL CARRO DE localStorage -- sin repetir
 function addToLocalCart() {
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
     let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
-    console.log(auxCartArray[0] == auxProdObject);
-    console.log(auxCartArray[0] === auxProdObject);
-    console.log(auxCartArray.indexOf(auxProdObject));
-    if (auxCartArray.indexOf(auxProdObject) === -1) {
+    let auxCondition = auxCartArray.some(product => product.id === auxProdObject);
+    if (auxCondition) {
         auxCartArray.push(auxProdObject);
         localStorage.setItem("localCart", JSON.stringify(auxCartArray));
     }
+    
+    /* NO LOGRÉ COMPARAR OBJETOS EN SU TOTALIDAD:
+    let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
+    let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
+    if (auxCartArray.indexOf(auxProdObject) === -1) {
+        auxCartArray.push(auxProdObject);
+        localStorage.setItem("localCart", JSON.stringify(auxCartArray));
+    }*/
 }
