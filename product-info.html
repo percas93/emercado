@@ -36,18 +36,22 @@
       </div>
     </div>
   </nav>
+  <!-- MAIN: -->
   <main>
     <div class="mx-3">
       <!-- Franja superior (Nombre del Producto y Botón Comprar) -->
-      <div>
+      <div class="container">
         <br>
         <br>
         <!-- Div renglón -->
         <div class="row">
-          <h2 class="col" id="prod-name-to-show"></h2>
+          <!-- Título del producto -->
+          <div class="col">
+            <h2 id="prod-name-to-show">Oso de peluche</h2>
+          </div>
           <!-- Botón comprar -->
-          <div>
-            <button class="col-1 btn btn-success" type="button" onclick="addToLocalCart()">
+          <div class="col-2">
+            <button type="button" class="btn btn-success" onclick="addToLocalCart()" style="float:right">
               Comprar</button>
           </div>
         </div>
