@@ -51,7 +51,7 @@ function showProductInfo() {
     document.getElementById("prod-u-sold-to-show").textContent = specificProduct.soldCount
     specificProduct.images.forEach(pic => {
         document.getElementById("img-grid").innerHTML +=
-            "<div class='col'><img class='img-fluid' src=" + pic + "><div>"
+            "<div class='col'><img class='card-img' src='" + pic + "' alt='Imagen ilustrativa'><div>"
     });
     for (let i = 0; i < specificProduct.relatedProducts.length; i++) {
         let observedRelProd = specificProduct.relatedProducts[i];
@@ -69,23 +69,30 @@ function showProductInfo() {
 //FUNCIÓN QUE COMPLETA EL HTML CON LOS COMENTARIOS (DIFERENCIADA POR FETCHING)
 function showCommentSection() {
 
-    document.getElementById("comment-section").innerHTML = "" //Para resetear en el caso que se use la función para volver a cargar comentarios al agregar más
+    document.getElementById("comment-section").innerHTML = `
+        <li class="list-group-item justify-content-between list-group-item-action active">
+            <h4>Comentarios</h4>
+          </li>
+    ` //Para resetear en el caso que se use la función para volver a cargar comentarios al agregar más
     let contador = 0
     for (let j = 0; j < commentsArray.length; j++) {
         document.getElementById("comment-section").innerHTML += `
-        <li class="list-group-item d-flex justify-content-between col">
-              <div>
-                <div style="display: inline-flex">
-                    <h4 class="my-0">${commentsArray[j].user}</h4><p class="text-muted">${commentsArray[j].dateTime}</p>
-                    <span class="fa fa-star" id="com${contador}-star1"></span>
-                    <span class="fa fa-star" id="com${contador}-star2"></span>
-                    <span class="fa fa-star" id="com${contador}-star3"></span>
-                    <span class="fa fa-star" id="com${contador}-star4"></span>
-                    <span class="fa fa-star" id="com${contador}-star5"></span>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    <h4 class="my-0">${commentsArray[j].user}</h4>
                 </div>
-                <p>${commentsArray[j].description}</p>
-              </div>
-            </li>
+                <div class="col">
+                    <span class="fa fa-star" id="com${contador}-star1" style="float: right"></span>
+                    <span class="fa fa-star" id="com${contador}-star2" style="float: right"></span>
+                    <span class="fa fa-star" id="com${contador}-star3" style="float: right"></span>
+                    <span class="fa fa-star" id="com${contador}-star4" style="float: right"></span>
+                    <span class="fa fa-star" id="com${contador}-star5" style="float: right"></span>
+                </div>
+            </div>
+            <p class="text-muted">${commentsArray[j].dateTime}</p>
+            <p>${commentsArray[j].description}</p>
+        </li>
         `
         for (let num = 1; num <= commentsArray[j].score && num > 0; num++) {
             document.getElementById("com" + contador + "-star" + num).setAttribute('class', 'fa fa-star checked');
@@ -98,13 +105,13 @@ function showCommentSection() {
 //FUNCIÓN QUE AGREGA PRODUCTOS AL CARRO DE localStorage -- sin repetir
 function addToLocalCart() {
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
-    let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
+    let auxProdObject = { 'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0] };
     let auxCondition = !auxCartArray.some(product => product.id === auxProdObject.id);
     if (auxCondition) {
         auxCartArray.push(auxProdObject);
         localStorage.setItem("localCart", JSON.stringify(auxCartArray));
     }
-    
+
     /* NO LOGRÉ COMPARAR OBJETOS EN SU TOTALIDAD:
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
     let auxProdObject = {'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0]};
