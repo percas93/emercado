@@ -111,6 +111,7 @@ function addToLocalCart() {
         auxCartArray.push(auxProdObject);
         localStorage.setItem("localCart", JSON.stringify(auxCartArray));
     }
+    alert("El producto se ha agregado a su carrito de compras")
 
     /* NO LOGRÉ COMPARAR OBJETOS EN SU TOTALIDAD:
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
