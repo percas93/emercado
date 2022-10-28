@@ -53,7 +53,7 @@ let showUserButton = function () {
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${localStorage.getItem("user")}</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" onclick="localStorage.removeItem('user');localStorage.removeItem('loginStatus')" href="#">Cerrar sesión</a>
         </div>
