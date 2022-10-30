@@ -24,23 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//FUNCIÓN QUE AGREGA COMENTARIO AL ARRAY JS Y VUELVE A CARGAR COMENTARIOS
-document.getElementById("btnEnviar").addEventListener('click', function () {
-    let commentToAdd = {
-        product: localStorage.getItem('prodID'),
-        score: document.getElementById('inputScore').value,
-        description: document.getElementById('commentBox').value,
-        user: localStorage.getItem('user'),
-        dateTime: "[fecha ilustrativa]2022-01-04 11:16:48"
-    };
-    commentsArray.push(commentToAdd);
-    showCommentSection();
-    //Restaurar valores de inputs:
-    document.getElementById('inputScore').value = 1
-    document.getElementById('commentBox').value = ""
-
-});
-
 //FUNCIÓN QUE COMPLETA EL HTML A PARTIR DEL OBJETO specificProduct
 function showProductInfo() {
 
@@ -101,6 +84,23 @@ function showCommentSection() {
     }
 
 }
+
+//FUNCIÓN QUE AGREGA COMENTARIO AL ARRAY JS Y VUELVE A CARGAR COMENTARIOS
+document.getElementById("btnEnviar").addEventListener('click', function () {
+    let commentToAdd = {
+        product: localStorage.getItem('prodID'),
+        score: document.getElementById('inputScore').value,
+        description: document.getElementById('commentBox').value,
+        user: localStorage.getItem('user'),
+        dateTime: "[fecha ilustrativa]2022-01-04 11:16:48"
+    };
+    commentsArray.push(commentToAdd);
+    showCommentSection();
+    //Restaurar valores de inputs:
+    document.getElementById('inputScore').value = 1
+    document.getElementById('commentBox').value = ""
+
+});
 
 //FUNCIÓN QUE AGREGA PRODUCTOS AL CARRO DE localStorage -- sin repetir
 function addToLocalCart() {
