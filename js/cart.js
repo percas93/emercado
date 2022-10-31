@@ -44,7 +44,7 @@ function showCartProds() {
         `
         document.getElementById("cartTableBody").innerHTML += rowToAppend
     })
-};
+};//no darle márgenes laterales a la tabla fue una elección estética
 
 //FUNCIÓN QUE OTORGA A LOS SUBTOTALES LA CAPACIDAD DE ACTUALIZARSE ANTE LA MODIFICACIÓN DE CANTIDADES
 function updateSubtotal() {
