@@ -105,13 +105,13 @@ document.getElementById("btnEnviar").addEventListener('click', function () {
 //FUNCIÓN QUE AGREGA PRODUCTOS AL CARRO DE localStorage -- sin repetir
 function addToLocalCart() {
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
-    let auxProdObject = { 'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'cost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0] };
+    let auxProdObject = { 'id': specificProduct.id, 'name': specificProduct.name, 'count': 1, 'unitCost': specificProduct.cost, 'currency': specificProduct.currency, 'image': specificProduct.images[0] };
     let auxCondition = !auxCartArray.some(product => product.id === auxProdObject.id);
     if (auxCondition) {
         auxCartArray.push(auxProdObject);
         localStorage.setItem("localCart", JSON.stringify(auxCartArray));
     }
-    alert("El producto se ha agregado a su carrito de compras")
+    alert("El producto se ha agregado a su carrito de compras. Revise todos sus artículos guardados desde su cuenta de usuario")
 
     /* NO LOGRÉ COMPARAR OBJETOS EN SU TOTALIDAD:
     let auxCartArray = JSON.parse(localStorage.getItem("localCart") || "[]");
