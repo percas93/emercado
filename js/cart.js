@@ -3,7 +3,7 @@ arrayCart = []
 //EJECUTAR FUNCIONES PARA VER CONTENIDO AL CARGAR
 document.addEventListener("DOMContentLoaded", function () {
 
-    showUserButton()
+    showUserButton();
 
     loginCheck();
 
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     concatNoDuplicates(arrayCart, auxLSCart);
                 }
                 showCartProds();
-                updateSubtotal();
+                //updateRowSubtotals();
+                //updateSubtotals();
             }
         })
 });
@@ -25,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function concatNoDuplicates(finalArr, arrToAdd, pk = "id") {
     arrToAdd.forEach(eArrToAdd => {
         if (!finalArr.some(eFinalArr => eArrToAdd[pk] == eFinalArr[pk])) {
+            finalArr.push(eArrToAdd);
+        }
+        //Este else se puede borrar si se quiere mantener los atributos de los objetos en el array inicial
+        else {
+            let eToRemoveIdx = finalArr.findIndex(object => {object[pk] == eArrToAdd[pk]});
+            finalArr.splice(eToRemoveIdx);
             finalArr.push(eArrToAdd);
         }
     });
@@ -47,12 +54,30 @@ function showCartProds() {
 };//no darle márgenes laterales a la tabla fue una elección estética
 
 //FUNCIÓN QUE OTORGA A LOS SUBTOTALES LA CAPACIDAD DE ACTUALIZARSE ANTE LA MODIFICACIÓN DE CANTIDADES
-function updateSubtotal() {
+function updateRowSubtotals() {
     let everyInput = document.getElementsByClassName("rowInput");
     let everySubtotal = document.getElementsByClassName("rowSubtotal");
     for (let i = 0; i < everyInput.length; i++) {
         everyInput[i].oninput = function() {
-            everySubtotal[i].innerHTML = everyInput[i].value * arrayCart[i].unitCost;
+            updateArrayQuantities();//Actualizar cantidades en Array
+            everySubtotal[i].innerHTML = arrayCart[i].value * arrayCart[i].unitCost;//Actualizar subtotal del renglón
+            updateSubtotals();//Actualizar subtotales finales
         };
     };
 };
+
+//FUNCIÓN QUE ACTUALIZA LAS CANTIDADES DEL ARRAY SEGÚN INPUTS
+function updateArrayQuantities() {
+    let everyInput = document.getElementsByClassName("rowInput");
+    for (let i = 0; i < arrayCart.length; i++) {
+        arrayCart[i].count = everyInput[i].value;
+    };
+    localStorage.setItem("localCart", JSON.stringify(arrayCart));
+};
+
+//FUNCIÓN QUE ACTUALIZA LOS SUBTOTALES
+function updateSubtotals() {
+    let subtotal = 0;
+    arrayCart.forEach(e => {subtotal += e.count * e.unitCost});
+    document.getElementById("productCostText").innerText = subtotal
+}
