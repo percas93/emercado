@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (result.status === 'ok') {
                 let auxExtCart = result.data.articles;
                 concatNoDuplicates(arrayCart, auxExtCart);
+                updateLSCart();
                 showCartProds();
                 updateRowSubtotal();
                 updateSubtotal ()
